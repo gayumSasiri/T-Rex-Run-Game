@@ -53,7 +53,7 @@ body {
 
 .cactus {
     position: absolute;
-    left: calc(var(--bottom) * 1%);
+    left: calc(var(--left) * 1%);
     height: 30%;
     bottom: 0;
 }

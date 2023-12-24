@@ -1,6 +1,6 @@
-import { setCustomProperty } from "./updateCustomProperty.js";
+import { getCustomProperty, incrementCustomProperty, setCustomProperty } from "./updateCustomProperty.js";
 
-const SPEED = 0.0;
+const SPEED = 0.05;
 const CACTUS_INTERVAL_MIN = 500;
 const CACTUS_INTERVAL_MAX = 2000;
 const worldElm = document.querySelector("[data-world]");
@@ -8,10 +8,18 @@ const worldElm = document.querySelector("[data-world]");
 let nextCactusTime;
 export function setUpCactus() {
     nextCactusTime = CACTUS_INTERVAL_MIN;
+    document.querySelectorAll("[data-catcus]").forEach(cactus => {
+        cactus.remove();
+    })
 }
 
 export function updateCactus(delta, speedScale) {
-    document.querySelectorAll("[data-cactus]");
+    document.querySelectorAll("[data-cactus]").forEach( cactus => {
+        incrementCustomProperty(cactus, "--left", delta * speedScale * SPEED * -1);
+        if( getCustomProperty(cactus, "--left") <= -100){
+            cactus.remove();
+        }
+    })
 
     if(nextCactusTime <= 0) {
         createCactus();
@@ -21,14 +29,14 @@ export function updateCactus(delta, speedScale) {
 }
 
 function createCactus() {
-    const cactus = document.createElement("div");
+    const cactus = document.createElement("img");
     cactus.dataset.cactus = true;
-    cactus.src = `imgs/cactus.png`;
+    cactus.src = "imgs/cactus.png";
     cactus.classList.add("cactus");
     setCustomProperty(cactus, "--left", 100);
-    worldElm.append("cactus");
+    worldElm.append(cactus);
 }
 
 function randomNumberBetween(min,max) {
-    
+    return Math.floor(Math.random() * (max - min + 1) + min);
 }
