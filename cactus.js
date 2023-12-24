@@ -8,7 +8,7 @@ const worldElm = document.querySelector("[data-world]");
 let nextCactusTime;
 export function setUpCactus() {
     nextCactusTime = CACTUS_INTERVAL_MIN;
-    document.querySelectorAll("[data-catcus]").forEach(cactus => {
+    document.querySelectorAll("[data-cactus]").forEach(cactus => {
         cactus.remove();
     })
 }
@@ -27,6 +27,13 @@ export function updateCactus(delta, speedScale) {
     }
     nextCactusTime -= delta;
 }
+
+export function getCactusRects() {
+    return [...document.querySelectorAll("[data-cactus]")].map(cactus => {
+      return cactus.getBoundingClientRect()
+    })
+}
+  
 
 function createCactus() {
     const cactus = document.createElement("img");
