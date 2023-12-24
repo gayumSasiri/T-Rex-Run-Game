@@ -1,5 +1,6 @@
 import { setUpGround, updateGround } from './ground.js';
 import { setUpDino, updateDino } from './dino.js';
+import { setUpCactus, updateCactus } from './cactus.js';
 
 const WORLD_WIDTH = 100;
 const WORLD_HEIGHT = 30;
@@ -29,6 +30,7 @@ function update(time){
 
     updateGround(delta, speedScale);
     updateDino(delta, speedScale);
+    updateCactus(delta,speedScale);
     updateSpeedScale(delta);
     updateScore(delta);
 
