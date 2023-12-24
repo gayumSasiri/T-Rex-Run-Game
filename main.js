@@ -53,6 +53,7 @@ function handleStart() {
     score = 0;
     setUpGround();
     setUpDino();
+    setUpCactus();
     startScreenElm.classList.add("hide");
     window.requestAnimationFrame(update);
 }
