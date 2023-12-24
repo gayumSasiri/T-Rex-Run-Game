@@ -1,5 +1,7 @@
 const groundElms = document.querySelectorAll("[data-ground]");
 
-function updateGround(delta) {
-    
+export function updateGround(delta) {
+    groundElms.forEach(ground => {
+        //todo
+    });
 }
