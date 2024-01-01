@@ -28,7 +28,7 @@ If you want to run the game locally:
 
 
 ### Version 1.0.0
-
+[click to see game how looks like](https://gayumsasiri.github.io/T-Rex-Run-Game/)
 ### License
 Copyright &copy; 2023 GAYUM.All Rights Reserved.<br>
 This project is licensed under this [MIT License](License.txt)
